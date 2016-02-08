@@ -30,13 +30,13 @@ class Fibonacci
      */
     public static function get($n)
     {
-        self::validate($n);
-        
         if (isset(self::$cache[$n]))
         {
             return self::$cache[$n];
         }
-
+        
+        self::validate($n);
+        
         foreach (Fibonacci::sequence($n + 1) as $key => $number) {
             self::$cache[$key] = $number;
         };
